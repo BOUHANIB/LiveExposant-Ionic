@@ -13,6 +13,7 @@
       <ion-title size="large">Livre</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-searchbar [(ngModel)]="keyword" (ionInput)="searchLivre()"></ion-searchbar>
 
   <ion-card color="light" *ngFor="let livre of livres" (click)="goToLivreDetails(livre)">
     <ion-card-header>

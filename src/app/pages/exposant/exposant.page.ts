@@ -11,6 +11,7 @@ import {NavController} from "@ionic/angular";
 export class ExposantPage implements OnInit {
   exposants: Array<Exposant> = [] ;
   public keyword : string="";
+  searchTimeout: any;
 
   constructor(private exposantService:ExposantService ,
               private navCtrl: NavController) {
@@ -39,15 +40,23 @@ export class ExposantPage implements OnInit {
       )
   }
   searchExposant() {
-    this.exposantService.searchExposant(this.keyword).subscribe({
-      next:value => {
-        console.log(value);
-        this.exposants=value;
-      },
-      error: err => {
-        console.log(err);
+    clearTimeout(this.searchTimeout);
+
+    this.searchTimeout = setTimeout(() => {
+      if (this.keyword.trim() === "") {
+        this.getExposants(); // Afficher tous les exposants si la recherche est vide
+      } else {
+        this.exposantService.searchExposant(this.keyword).subscribe({
+          next: (value) => {
+            this.exposants = value;
+          },
+          error: (err) => {
+            console.log(err);
+          },
+        });
       }
-    })
+    }, 300); // Temporisation de 300 ms avant la recherche
   }
+
 }
 

@@ -7,6 +7,7 @@
       <ion-title>Exposant</ion-title>
     </ion-toolbar>
   </ion-header>
+  <ion-searchbar [(ngModel)]="keyword" (ionInput)="searchExposant()"></ion-searchbar>
 
   <ion-header collapse="condense">
     <ion-toolbar>
