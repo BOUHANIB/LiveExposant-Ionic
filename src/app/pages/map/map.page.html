@@ -1,0 +1,53 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Map</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true" class="horizontal-scroll">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Map</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-row>
+    <ion-col class="ion-text-center">
+      <ion-searchbar
+        [(ngModel)]="locationTitle"
+        placeholder="Enter a title"
+        (keyup.enter)="searchLocation()"
+      ></ion-searchbar>
+    </ion-col>
+  </ion-row>
+
+  <div class="horizontal-scroll">
+
+  <div class="image-container">
+    <img src="assets/Map.png" alt="Workplace" usemap="#image-map" class="full-width-image">
+
+    <map name="image-map">
+      <area target="" alt="A11" title="A11" href="A11" coords="530,126" shape="poly">
+      <area target="" alt="A22" title="A22" href="A22" coords="482,173" shape="poly">
+      <area target="" alt="B11" title="B11" href="B11" coords="180,44" shape="poly">
+      <area target="" alt="B22" title="B22" href="B22" coords="77,167" shape="poly">
+      <area target="" alt="C11" title="C11" href="C11" coords="158,366" shape="poly">
+      <area target="" alt="C22" title="C22" href="C22" coords="62,448" shape="poly">
+      <area target="" alt="D11" title="D11" href="D11" coords="285,379" shape="poly">
+      <area target="" alt="D22" title="D22" href="D22" coords="366,453" shape="poly">
+      <area target="" alt="E11" title="E11" href="E11" coords="513,371" shape="poly">
+      <area target="" alt="E22" title="E22" href="E22" coords="410,322" shape="poly">
+    </map>
+
+
+    <div id="locationMarker" class="location-marker" [style.left.px]="markerX" [style.top.px]="markerY"
+         *ngIf="markerVisible">
+      <ion-icon name="location"></ion-icon>
+    </div>
+  </div>
+  </div>
+
+</ion-content>

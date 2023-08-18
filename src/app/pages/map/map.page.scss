@@ -1,0 +1,41 @@
+.location-marker {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  transform: translate(-50%, -100%);
+  font-size: 24px;
+  color: red;
+}
+
+ion-content {
+  --offset-content: 56px; /* Ajustez cette valeur en fonction de la hauteur de la barre de recherche */
+  --overflow: visible !important;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: auto; /* Activer le défilement horizontal */
+}
+
+.image-container {
+  overflow-x: scroll;
+  width: calc(100% + 200px); /* Ajustez cette valeur pour augmenter le dépassement */
+  position: relative;
+  left: -100px; /* Ajustez cette valeur pour centrer l'image par rapport à l'écran */
+  display: flex;
+
+}
+
+.full-width-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  border: 2px solid red;
+}
+
+.horizontal-scroll {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: scroll;
+  width: 100vw; /* Utilise la largeur de la fenêtre pour permettre le défilement horizontal */
+}
